@@ -1,15 +1,12 @@
-// app/team/page.tsx  (App Router)
-// OR rename to pages/team/index.tsx for Pages Router — just swap the import paths
-
 import Link from "next/link";
-import { team } from "../data/content";
+import { company, team } from "../data/content";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import TeamCard from "../components/teamcard";
 
 export default function TeamPage() {
-  const founders = team.filter((m) => m.isFounder);
-  const members  = team.filter((m) => !m.isFounder);
+  const founders = team.filter((member) => member.isFounder);
+  const members = team.filter((member) => !member.isFounder);
 
   return (
     <>
@@ -17,229 +14,150 @@ export default function TeamPage() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;900&family=Bebas+Neue&display=swap');
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-          background: #0A0A0A;
-          color: #FAFAF5;
-          font-family: 'Jost', sans-serif;
+        :root {
+          --red: #D42030;
+          --red-deep: #A8192A;
+          --bg: #090909;
+          --surface: rgba(255,255,255,0.05);
+          --surface-strong: rgba(255,255,255,0.12);
+          --text: #f7f5f0;
+          --text-muted: #c8c5c0;
         }
 
-        .team-page {
-          min-height: 100vh;
-          background: #0A0A0A;
-          padding: 80px 24px 96px;
-          position: relative;
-          overflow: hidden;
-        }
-
-        /* Background grid — same as products page */
-        .bg-grid {
-          position: fixed;
+        .team-page { background: var(--bg); color: var(--text); }
+        .hero-shell { max-width: 1200px; margin: 0 auto; padding: 72px 24px 48px; }
+        .hero-panel { position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .hero-panel::before {
+          content: "";
+          position: absolute;
           inset: 0;
-          background-image:
-            linear-gradient(rgba(255,214,0,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,214,0,0.04) 1px, transparent 1px);
-          background-size: 60px 60px;
+          background-image: linear-gradient(rgba(212,32,48,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(212,32,48,0.06) 1px, transparent 1px);
+          background-size: 48px 48px;
+          opacity: 0.35;
           pointer-events: none;
-          z-index: 0;
         }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+        .hero-left { padding: 24px 0; }
+        .hero-right { display: grid; gap: 18px; }
 
-        .inner {
-          max-width: 1200px;
-          margin: 0 auto;
-          position: relative;
-          z-index: 1;
-        }
+        .section-tag { display: inline-flex; align-items: center; gap: 10px; font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); border: 1px solid rgba(212,32,48,0.28); padding: 7px 14px; border-radius: 999px; margin-bottom: 24px; }
 
-        /* ── Breadcrumb ── */
-        .breadcrumb {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 48px;
-        }
-        .breadcrumb a {
-          font-family: 'Jost', sans-serif;
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          color: #888;
-          text-decoration: none;
-          text-transform: uppercase;
-          transition: color 0.15s;
-        }
-        .breadcrumb a:hover { color: #FFD600; }
-        .breadcrumb-sep { color: #444; font-size: 0.75rem; }
-        .breadcrumb-current {
-          font-family: 'Jost', sans-serif;
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          color: #FFD600;
-          text-transform: uppercase;
-        }
+        .hero-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 8vw, 104px); line-height: 0.92; margin: 0 0 24px; }
+        .hero-highlight { display: block; color: var(--red); }
 
-        /* ── Header ── */
-        .page-tag {
-          display: inline-block;
-          font-family: 'Jost', sans-serif;
-          font-weight: 600;
-          font-size: 0.72rem;
-          color: #FFD600;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          border: 1px solid rgba(255,214,0,0.3);
-          padding: 4px 10px;
-          border-radius: 3px;
-          margin-bottom: 16px;
-        }
+        .hero-description { font-family: 'Jost', sans-serif; font-size: 1rem; line-height: 1.75; color: var(--text-muted); max-width: 620px; margin-bottom: 30px; }
 
-        .page-title {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(52px, 7vw, 96px);
-          line-height: 0.93;
-          letter-spacing: 0.02em;
-          margin-bottom: 20px;
-        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+        .hero-btn-primary, .hero-btn-secondary { border-radius: 999px; padding: 14px 26px; font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; transition: transform 0.15s, background 0.15s, color 0.15s; }
+        .hero-btn-primary { background: var(--red); color: #fff; }
+        .hero-btn-primary:hover { background: var(--red-deep); transform: translateY(-2px); }
+        .hero-btn-secondary { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.2); }
+        .hero-btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
 
-        .page-title em {
-          color: #FFD600;
-          font-style: normal;
-        }
+        .stats-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 28px; padding: 32px; }
+        .stats-eyebrow { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 18px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+        .stat-card { background: rgba(255,255,255,0.06); border-radius: 20px; padding: 20px; }
+        .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 46px; color: #fff; line-height: 1; }
+        .stat-lbl { font-family: 'Jost', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-top: 8px; }
 
-        .page-subtitle {
-          font-family: 'Jost', sans-serif;
-          font-size: 1rem;
-          font-weight: 400;
-          color: #BBBBAA;
-          line-height: 1.7;
-          max-width: 520px;
-          margin-bottom: 60px;
-        }
+        .ticker-bar { display: flex; flex-wrap: wrap; gap: 10px; padding: 18px 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; }
+        .ticker-item { font-family: 'Bebas Neue', sans-serif; font-size: 0.84rem; letter-spacing: 0.12em; color: #fff; padding: 10px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); }
 
-        /* ── Section label ── */
-        .section-label {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          margin-bottom: 28px;
-        }
-        .section-label-text {
-          font-family: 'Jost', sans-serif;
-          font-weight: 700;
-          font-size: 0.7rem;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #555;
-        }
-        .section-label-line {
-          flex: 1;
-          height: 1px;
-          background: #1e1e1e;
-        }
+        .inner { max-width: 1200px; margin: 0 auto; padding: 48px 24px 80px; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+        .breadcrumb a { font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; }
+        .breadcrumb-sep { color: rgba(255,255,255,0.24); }
+        .breadcrumb-current { font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--red); text-transform: uppercase; }
 
-        /* ── Founders row ── */
-        .founders-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-          gap: 24px;
-          margin-bottom: 56px;
-        }
+        .page-tag { display: inline-flex; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 8px 14px; margin-bottom: 20px; }
+        .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 88px); line-height: 0.95; margin: 0 0 22px; color: #fff; }
+        .page-title em { display: block; color: var(--red); font-style: normal; }
+        .page-subtitle { font-family: 'Jost', sans-serif; font-size: 1rem; color: var(--text-muted); line-height: 1.75; max-width: 760px; margin-bottom: 44px; }
 
-        /* ── Members grid ── */
-        .members-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-          gap: 20px;
-          margin-bottom: 56px;
-        }
+        .section-label { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+        .section-label-text { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); }
+        .section-label-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
 
-        /* ── Hiring banner ── */
-        .hiring-banner {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 24px;
-          background: #FFD600;
-          border: 3px solid #0A0A0A;
-          box-shadow: 5px 5px 0 #0A0A0A;
-          padding: 20px 28px;
-          border-radius: 4px;
-        }
-        .hiring-banner-left {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-        }
-        .hiring-banner-left span:first-child {
-          font-size: 1.3rem;
-        }
-        .hiring-banner-text {
-          font-family: 'Jost', sans-serif;
-          font-weight: 700;
-          font-size: 0.82rem;
-          letter-spacing: 0.08em;
-          color: #0A0A0A;
-          text-transform: uppercase;
-        }
-        .hiring-banner-sub {
-          font-family: 'Jost', sans-serif;
-          font-weight: 400;
-          font-size: 0.78rem;
-          color: rgba(10,10,10,0.6);
-          margin-top: 2px;
-        }
-        .hiring-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          background: #0A0A0A;
-          color: #FFD600;
-          font-family: 'Jost', sans-serif;
-          font-weight: 700;
-          font-size: 0.75rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          text-decoration: none;
-          padding: 10px 18px;
-          border-radius: 3px;
-          white-space: nowrap;
-          transition: opacity 0.15s;
-        }
-        .hiring-btn:hover { opacity: 0.85; }
+        .founders-grid { display: grid; grid-template-columns: repeat(2, minmax(360px, 1fr)); gap: 28px; margin-bottom: 56px; }
+        .members-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 56px; }
 
-        @media (max-width: 700px) {
-          .founders-grid { grid-template-columns: 1fr; }
-          .members-grid  { grid-template-columns: 1fr; }
-          .hiring-banner { flex-direction: column; align-items: flex-start; }
-        }
+        .hiring-banner { background: var(--red); border-radius: 24px; padding: 26px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .hiring-banner-left { display: flex; align-items: center; gap: 16px; }
+        .hiring-banner-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #fff; margin: 0; }
+        .hiring-banner-sub { font-family: 'Jost', sans-serif; font-size: 0.92rem; color: rgba(255,255,255,0.88); margin: 0; }
+        .hiring-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; border-radius: 999px; background: #090909; color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+        @media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr; } .founders-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 720px) { .inner { padding: 36px 20px 72px; } .founders-grid, .members-grid { grid-template-columns: 1fr; } .hero-actions { flex-direction: column; } }
       `}</style>
 
       <div className="team-page">
-        <div className="bg-grid" />
+        <section className="hero-panel">
+          <div className="hero-shell">
+            <div className="hero-grid">
+              <div className="hero-left">
+                <div className="section-tag">TEAM · {company.location}</div>
+                <h1 className="hero-headline">
+                  MEET<br />
+                  <span className="hero-highlight">THE TEAM</span>
+                </h1>
+                <p className="hero-description">
+                  Small, focused teams build the best products. We ship with intention, own our craft, and help each other move faster.
+                </p>
+                <div className="hero-actions">
+                  <a href="#team-roster" className="hero-btn-primary">See the team</a>
+                  <a href="/careers" className="hero-btn-secondary">Join us</a>
+                </div>
+              </div>
+              <div className="hero-right">
+                <div className="stats-card">
+                  <p className="stats-eyebrow">OUR FORCE</p>
+                  <div className="stats-grid">
+                    <div className="stat-card">
+                      <p className="stat-val">{team.length}</p>
+                      <p className="stat-lbl">Team members</p>
+                    </div>
+                    <div className="stat-card">
+                      <p className="stat-val">2</p>
+                      <p className="stat-lbl">Founders</p>
+                    </div>
+                    <div className="stat-card">
+                      <p className="stat-val">5</p>
+                      <p className="stat-lbl">Core leads</p>
+                    </div>
+                    <div className="stat-card">
+                      <p className="stat-val">8</p>
+                      <p className="stat-lbl">Open roles</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="ticker-bar">
+                  {['Leadership', 'Design', 'Engineering', 'Growth', 'Support', 'Product'].map((label) => (
+                    <span key={label} className="ticker-item">{label}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <div className="inner">
-
-          {/* Breadcrumb */}
+        <div className="inner" id="team-roster">
           <nav className="breadcrumb">
             <Link href="/">Home</Link>
             <span className="breadcrumb-sep">›</span>
             <span className="breadcrumb-current">Team</span>
           </nav>
 
-          {/* Header */}
-          <p className="page-tag">THE PEOPLE BEHIND RAFLAY</p>
-          <h1 className="page-title">
-            MEET<br />
-            <em>THE TEAM</em>
-          </h1>
+          <div className="page-tag">THE PEOPLE</div>
+          <h2 className="page-title">
+            YOUR<br />
+            <em>Raflay TEAM</em>
+          </h2>
           <p className="page-subtitle">
-            A small, focused team building software that moves. Every person here
-            owns their domain and ships with intention.
+            Meet the people who design, build, and ship our products. Every role is grounded in craft, clarity, and high ownership.
           </p>
 
-          {/* Founders */}
           {founders.length > 0 && (
             <>
               <div className="section-label">
@@ -254,7 +172,6 @@ export default function TeamPage() {
             </>
           )}
 
-          {/* Rest of the team */}
           {members.length > 0 && (
             <>
               <div className="section-label">
@@ -269,12 +186,11 @@ export default function TeamPage() {
             </>
           )}
 
-          {/* Hiring banner */}
           <div className="hiring-banner">
             <div className="hiring-banner-left">
               <span>⚡</span>
               <div>
-                <p className="hiring-banner-text">We're growing — join the team.</p>
+                <p className="hiring-banner-text">We’re growing — join the team.</p>
                 <p className="hiring-banner-sub">Open roles across engineering, design & sales.</p>
               </div>
             </div>
@@ -282,7 +198,6 @@ export default function TeamPage() {
               VIEW OPEN ROLES →
             </Link>
           </div>
-
         </div>
       </div>
       <Footer />

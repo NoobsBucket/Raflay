@@ -17,7 +17,7 @@ export default function Footer() {
           transition: color 0.15s;
         }
         .footer-link:hover {
-          color: #FFD600;
+          color: #D42030;
         }
         .footer-email {
           font-family: 'Jost', sans-serif;
@@ -63,7 +63,7 @@ export default function Footer() {
             className="footer-grid"
             style={{
               display: "grid",
-              gridTemplateColumns: "2fr 1fr 1fr",
+              gridTemplateColumns: "2fr 1fr 1fr 1fr",
               gap: 48,
               marginBottom: 48,
             }}
@@ -196,6 +196,33 @@ export default function Footer() {
                     {c.email}
                   </a>
                 </div>
+              ))}
+            </div>
+
+            {/* Blog links */}
+            <div>
+              <p
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "0.75rem",
+                  color: "#E8180C",
+                  letterSpacing: "0.12em",
+                  marginBottom: 18,
+                }}
+              >
+                FROM THE BLOG
+              </p>
+              {[
+                { href: "/blog/how-much-does-a-business-website-cost", label: "How much does a business website cost" },
+                { href: "/blog/nextjs-vs-react-which-is-better", label: "Next.js vs React — Which is better" },
+                { href: "/blog/how-to-grow-your-business-with-mobile-apps", label: "Grow your business with mobile apps" },
+                { href: "/blog/video-editing-tips-for-youtube-creators", label: "Video editing tips for creators" },
+                { href: "/blog/logo-design-best-practices", label: "Logo design best practices" },
+              ].map((b) => (
+                <Link key={b.href} href={b.href} className="footer-link">
+                  {b.label}
+                </Link>
               ))}
             </div>
           </div>

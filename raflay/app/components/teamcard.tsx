@@ -35,26 +35,28 @@ export default function TeamCard({ member, variant = "default" }: TeamCardProps)
         .team-card {
           background: #111;
           border: 1.5px solid #222;
-          border-radius: 4px;
-          padding: 28px;
+          border-radius: 24px;
+          padding: 32px;
           display: flex;
           flex-direction: column;
-          gap: 16px;
-          transition: border-color 0.15s, transform 0.15s;
+          gap: 20px;
+          transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
           position: relative;
           overflow: hidden;
+          min-height: 360px;
         }
         .team-card::before {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
-          height: 3px;
+          height: 4px;
           background: #222;
           transition: background 0.15s;
         }
         .team-card:hover {
           border-color: #333;
-          transform: translateY(-2px);
+          transform: translateY(-4px);
+          box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
         }
         .team-card:hover::before {
           background: #FFD600;
@@ -62,34 +64,108 @@ export default function TeamCard({ member, variant = "default" }: TeamCardProps)
 
         /* Founder variant */
         .team-card.founder-card {
-          background: #FFD600;
+          background: linear-gradient(135deg, #FFD600 0%, #F0C22B 100%);
           border-color: #FFD600;
-          padding: 36px;
+          padding: 44px;
+          min-height: 440px;
         }
         .team-card.founder-card::before {
           background: #0A0A0A;
         }
         .team-card.founder-card:hover {
           border-color: #FFD600;
-          transform: translateY(-3px);
+          transform: translateY(-4px);
+          box-shadow: 0 30px 90px rgba(212, 32, 48, 0.25);
         }
         .team-card.founder-card:hover::before {
           background: #0A0A0A;
         }
 
-        /* Avatar */
+        .founder-accent {
+          position: absolute;
+          right: -32px;
+          top: 28px;
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background: rgba(212, 32, 48, 0.16);
+          filter: blur(24px);
+          pointer-events: none;
+        }
+
+        .founder-thumbnail {
+          position: relative;
+          border-radius: 28px;
+          overflow: hidden;
+          min-height: 260px;
+          margin-bottom: 28px;
+          background: #111;
+          display: flex;
+          align-items: flex-end;
+          justify-content: start;
+          padding: 24px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .founder-thumbnail::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.65));
+        }
+        .founder-thumbnail img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .founder-thumbnail-placeholder {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, rgba(0,0,0,0.35), rgba(10,10,10,0.85));
+        }
+        .founder-thumbnail-label {
+          position: relative;
+          z-index: 1;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 16px;
+          border-radius: 999px;
+          background: rgba(0,0,0,0.75);
+          color: #fff;
+          font-family: 'Jost', sans-serif;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-size: 0.78rem;
+        }
+        .founder-thumbnail-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #D42030;
+          box-shadow: 0 0 12px rgba(212, 32, 48, 0.6);
+        }
+
         .team-avatar {
-          width: 64px;
-          height: 64px;
-          border-radius: 4px;
+          width: 80px;
+          height: 80px;
+          border-radius: 22px;
           overflow: hidden;
           flex-shrink: 0;
           border: 2px solid #2a2a2a;
           position: relative;
+          background: #111;
         }
         .founder-card .team-avatar {
-          width: 80px;
-          height: 80px;
+          width: 120px;
+          height: 120px;
+          border-radius: 28px;
           border-color: rgba(10,10,10,0.2);
         }
 
@@ -162,50 +238,52 @@ export default function TeamCard({ member, variant = "default" }: TeamCardProps)
 
         .team-name {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 1.65rem;
+          font-size: 1.95rem;
           letter-spacing: 0.03em;
-          line-height: 1;
+          line-height: 1.05;
           color: #FAFAF5;
+          margin: 0;
         }
         .founder-card .team-name {
-          font-size: 2rem;
+          font-size: 2.4rem;
           color: #0A0A0A;
         }
 
         .team-bio {
           font-family: 'Jost', sans-serif;
-          font-size: 0.875rem;
+          font-size: 0.95rem;
           font-weight: 400;
-          color: #777;
-          line-height: 1.7;
+          color: #c7c7c0;
+          line-height: 1.75;
           flex: 1;
+          margin: 0;
         }
         .founder-card .team-bio {
-          color: rgba(10,10,10,0.65);
-          font-size: 0.95rem;
+          color: rgba(10,10,10,0.7);
+          font-size: 1rem;
         }
 
         .team-email-link {
           display: inline-flex;
           align-items: center;
-          gap: 7px;
+          gap: 8px;
           font-family: 'Jost', sans-serif;
           font-weight: 600;
-          font-size: 0.75rem;
+          font-size: 0.82rem;
           letter-spacing: 0.06em;
-          color: #555;
+          color: #aaa;
           text-decoration: none;
           transition: color 0.12s;
           margin-top: auto;
-          padding-top: 8px;
-          border-top: 1px solid #1e1e1e;
+          padding-top: 10px;
+          border-top: 1px solid rgba(255,255,255,0.08);
           word-break: break-all;
         }
         .team-email-link:hover { color: #FFD600; }
         .founder-card .team-email-link {
-          color: rgba(10,10,10,0.45);
-          border-top-color: rgba(10,10,10,0.15);
-          font-size: 0.82rem;
+          color: rgba(10,10,10,0.7);
+          border-top-color: rgba(10,10,10,0.16);
+          font-size: 0.9rem;
         }
         .founder-card .team-email-link:hover {
           color: #0A0A0A;
@@ -218,6 +296,25 @@ export default function TeamCard({ member, variant = "default" }: TeamCardProps)
       `}</style>
 
       <div className={`team-card${isFounder ? " founder-card" : ""}`}>
+        {isFounder && <div className="founder-accent" />}
+        {isFounder && (
+          <div className="founder-thumbnail">
+            {member.image ? (
+              <img src={member.image} alt={member.name} />
+            ) : (
+              <div className="founder-thumbnail-placeholder">
+                <span className="founder-thumbnail-label">
+                  <span className="founder-thumbnail-dot" />
+                  Team founder
+                </span>
+              </div>
+            )}
+            <span className="founder-thumbnail-label">
+              <span className="founder-thumbnail-dot" />
+              Team founder
+            </span>
+          </div>
+        )}
         <div className="team-header">
           {/* Avatar */}
           <div className="team-avatar">
