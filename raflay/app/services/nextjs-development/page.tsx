@@ -40,7 +40,7 @@ export default function Page() {
         pageSummary="Raflay uses Next.js to deliver fast, SEO-friendly web applications with flexible rendering and robust tooling."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="services" />
       <Footer />

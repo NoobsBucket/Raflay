@@ -7,7 +7,7 @@ export async function generateMetadata() {
   const title = "Next.js vs React — Practical comparison for production apps | Raflay";
   const description =
     "In-depth comparison of Next.js and React for real-world projects, covering rendering modes, performance, migration strategies, and Raflay's recommendations.";
-  const url = `https://raflay.com/blog/${slug}`;
+  const url = `https://raflay.comm/blog/${slug}`;
   return {
     title,
     description,
@@ -19,10 +19,10 @@ export async function generateMetadata() {
       url,
       type: "article",
       images: [
-        { url: `https://raflay.com/og/${slug}.png`, alt: title },
+        { url: `https://raflay.comm/og/${slug}.png`, alt: title },
       ],
     },
-    twitter: { card: "summary_large_image", title, description, images: [`https://raflay.com/og/${slug}.png`] },
+    twitter: { card: "summary_large_image", title, description, images: [`https://raflay.comm/og/${slug}.png`] },
   };
 }
 
@@ -93,7 +93,7 @@ export default function Page() {
             </ul>
 
             <h3>Need a custom evaluation?</h3>
-            <p>Raflay offers architecture audits where we profile your current app and produce a migration plan including estimated effort and performance projection. Contact <a href="mailto:hello@raflay.com">hello@raflay.com</a>.</p>
+            <p>Raflay offers architecture audits where we profile your current app and produce a migration plan including estimated effort and performance projection. Contact <a href="mailto:hello@raflay.comm">hello@raflay.comm</a>.</p>
 
             <script
               type="application/ld+json"
@@ -101,12 +101,12 @@ export default function Page() {
                 __html: JSON.stringify({
                   "@context": "https://schema.org",
                   "@type": "Article",
-                  mainEntityOfPage: { "@type": "WebPage", "@id": "https://raflay.com/blog/nextjs-vs-react-which-is-better" },
+                  mainEntityOfPage: { "@type": "WebPage", "@id": "https://raflay.comm/blog/nextjs-vs-react-which-is-better" },
                   headline: "Next.js vs React — Practical comparison for production apps | Raflay",
                   description: "In-depth comparison of Next.js and React for real-world projects, covering rendering modes, performance, migration strategies, and Raflay's recommendations.",
                   author: { "@type": "Organization", name: "Raflay" },
-                  publisher: { "@type": "Organization", name: "Raflay", logo: { "@type": "ImageObject", url: "https://raflay.com/logo.png" } },
-                  url: "https://raflay.com/blog/nextjs-vs-react-which-is-better",
+                  publisher: { "@type": "Organization", name: "Raflay", logo: { "@type": "ImageObject", url: "https://raflay.comm/logo.png" } },
+                  url: "https://raflay.comm/blog/nextjs-vs-react-which-is-better",
                 }),
               }}
             />

@@ -46,7 +46,7 @@ export default function Page() {
         pageSummary="Learn what Next.js is and why teams use it for fast, SEO-friendly web projects."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="blog" />
       <Footer />

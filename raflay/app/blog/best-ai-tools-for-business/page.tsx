@@ -40,7 +40,7 @@ export default function Page() {
         pageSummary="A practical review of AI tools that can streamline business workflows and operations."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="blog" />
       <Footer />

@@ -40,7 +40,7 @@ export default function Page() {
         pageSummary="Raflay delivers React applications that are modular, maintainable, and responsive across devices."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="services" />
       <Footer />

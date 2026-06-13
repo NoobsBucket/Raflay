@@ -7,7 +7,7 @@ export async function generateMetadata() {
   const title = "How much does a business website cost? — Pricing guide | Raflay";
   const description =
     "Detailed pricing guide for business websites: cost ranges, timelines, trade-offs, and how Raflay scopes and delivers web projects.";
-  const url = `https://raflay.com/blog/${slug}`;
+  const url = `https://raflay.comm/blog/${slug}`;
   return {
     title,
     description,
@@ -26,7 +26,7 @@ export async function generateMetadata() {
       type: "article",
       images: [
         {
-          url: `https://raflay.com/og/${slug}.png`,
+          url: `https://raflay.comm/og/${slug}.png`,
           alt: title,
         },
       ],
@@ -35,7 +35,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [`https://raflay.com/og/${slug}.png`],
+      images: [`https://raflay.comm/og/${slug}.png`],
     },
   };
 }
@@ -58,7 +58,7 @@ export default function Page() {
         <div className="hero-inner">
           <p className="hero-sub">Pricing · Web</p>
           <h1 className="hero-title">How much does a business website cost?</h1>
-          <p className="hero-sub">A practical breakdown of costs, timelines and choices for startups and SMBs.</p>
+          <p className="hero-sub">A practical breakdown of costs, timelines and choices for companys and SMBs.</p>
         </div>
       </section>
 
@@ -120,7 +120,7 @@ export default function Page() {
             <h2>Final recommendations and next steps</h2>
             <p>Scope conservatively and iterate. Start with a discovery sprint to define a prioritized backlog that maps to measurable outcomes (leads, signups, revenue). If you'd like, Raflay can run a 1-week discovery to produce a scoped proposal and a reliable fixed-price estimate.</p>
 
-            <p>Contact us: <a href="mailto:hello@raflay.com">hello@raflay.com</a> — we’ll provide a short questionnaire and schedule a discovery call.</p>
+            <p>Contact us: <a href="mailto:hello@raflay.comm">hello@raflay.comm</a> — we’ll provide a short questionnaire and schedule a discovery call.</p>
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{
@@ -129,7 +129,7 @@ export default function Page() {
                   "@type": "Article",
                   mainEntityOfPage: {
                     "@type": "WebPage",
-                    "@id": "https://raflay.com/blog/how-much-does-a-business-website-cost",
+                    "@id": "https://raflay.comm/blog/how-much-does-a-business-website-cost",
                   },
                   headline:
                     "How much does a business website cost? — Pricing guide | Raflay",
@@ -139,9 +139,9 @@ export default function Page() {
                   publisher: {
                     "@type": "Organization",
                     name: "Raflay",
-                    logo: { "@type": "ImageObject", url: "https://raflay.com/logo.png" },
+                    logo: { "@type": "ImageObject", url: "https://raflay.comm/logo.png" },
                   },
-                  url: "https://raflay.com/blog/how-much-does-a-business-website-cost",
+                  url: "https://raflay.comm/blog/how-much-does-a-business-website-cost",
                 }),
               }}
             />

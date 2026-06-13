@@ -1,4 +1,5 @@
-import { projects } from "../data/content";
+import Link from "next/link";
+import { products } from "../data/content";
 
 export default function Projects() {
   return (
@@ -11,6 +12,47 @@ export default function Projects() {
           grid-template-columns: repeat(3, 1fr);
           gap: 24px;
         }
+
+        :root {
+          --red: #D42030;
+          --text-light: #FAFAF5;
+          --muted: #c8c5c0;
+          --surface-dark: #0A0A0A;
+        }
+
+        .brutal-card, .brutal-card-red, .brutal-card-yellow {
+          border-radius: 20px;
+          padding: 28px;
+          transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+          border: 1px solid rgba(255,255,255,0.06);
+          box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+        }
+        .brutal-card { background: var(--surface-dark); color: var(--text-light); }
+        .brutal-card-yellow { background: #FFD600; color: #0A0A0A; border: 1px solid rgba(10,10,10,0.06); }
+        .brutal-card-red { background: #E8180C; color: #FAFAF5; }
+
+        .card-content { position: relative; z-index: 1; }
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .card-num { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; opacity: 0.08; margin-bottom: -16px; }
+        .card-name { font-family: 'Bebas Neue', sans-serif; font-size: 34px; margin-bottom: 12px; }
+        .card-desc { font-family: 'Jost', sans-serif; font-size: 0.95rem; line-height: 1.65; margin-bottom: 18px; }
+        .brutal-card .card-desc { color: rgba(250,250,245,0.9); }
+        .brutal-card-yellow .card-desc { color: #0A0A0A; }
+        .brutal-card-red .card-desc { color: rgba(250,250,245,0.95); }
+
+
+        .product-link {
+          display: block;
+          border-radius: 6px;
+          overflow: hidden;
+          transition: transform 0.18s, box-shadow 0.18s;
+          text-decoration: none;
+          color: inherit;
+        }
+        .product-link:hover { transform: translateY(-6px); box-shadow: 0 28px 80px rgba(0,0,0,0.18); }
+
+        .card-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.06em; }
+        .cta-arrow { display: inline-flex; width: 28px; height: 28px; border-radius: 999px; align-items: center; justify-content: center; background: rgba(0,0,0,0.08); }
 
         .project-description {
           font-family: 'Jost', sans-serif;
@@ -88,7 +130,7 @@ export default function Projects() {
       <section id="projects" style={{ padding: "96px 24px", maxWidth: 1200, margin: "0 auto" }}>
         {/* Header */}
         <div style={{ marginBottom: 56 }}>
-          <span className="section-tag">WHAT WE'RE BUILDING</span>
+          <span className="section-tag">WHAT WE&apos;RE BUILDING</span>
           <h2
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
@@ -106,16 +148,17 @@ export default function Projects() {
 
         {/* Projects grid */}
         <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div
+          {products.map((project, index) => (
+            <Link
               key={project.id}
-              className={
+              href={`/products/${project.id}`}
+              className={`product-link ${
                 project.color === "yellow"
                   ? "brutal-card-yellow"
                   : project.color === "red"
                   ? "brutal-card-red"
                   : "brutal-card"
-              }
+              }`}
               style={{
                 padding: 28,
                 background:
@@ -127,7 +170,6 @@ export default function Projects() {
                 color:
                   project.color === "yellow" ? "#0A0A0A" : "#FAFAF5",
                 position: "relative",
-                overflow: "hidden",
                 borderRadius: 4,
               }}
             >
@@ -203,8 +245,13 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
+                <span className="card-cta">
+                  VIEW DETAILS
+                  <span className="cta-arrow">→</span>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

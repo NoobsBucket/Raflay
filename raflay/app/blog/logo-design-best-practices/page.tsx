@@ -7,14 +7,14 @@ export async function generateMetadata() {
   const title = "Logo design best practices — Brand systems & engineering handoff | Raflay";
   const description =
     "Comprehensive guide to logo design: principles, process, responsive marks, and how to deliver engineering-ready assets.";
-  const url = `https://raflay.com/blog/${slug}`;
+  const url = `https://raflay.comm/blog/${slug}`;
   return {
     title,
     description,
     keywords: ["logo design", "brand", "design system", "Raflay"],
     alternates: { canonical: url },
-    openGraph: { title, description, url, type: "article", images: [{ url: `https://raflay.com/og/${slug}.png`, alt: title }] },
-    twitter: { card: "summary_large_image", title, description, images: [`https://raflay.com/og/${slug}.png`] },
+    openGraph: { title, description, url, type: "article", images: [{ url: `https://raflay.comm/og/${slug}.png`, alt: title }] },
+    twitter: { card: "summary_large_image", title, description, images: [`https://raflay.comm/og/${slug}.png`] },
   };
 }
 
@@ -75,7 +75,7 @@ export default function Page() {
             <p>Expand a logo into a small system: logo, iconography, color tokens, and type scales. Document component usage and variants so teams don’t reinvent the mark on every page.</p>
 
             <h3>Working with Raflay on brand projects</h3>
-            <p>We offer combined design + engineering sprints that produce not only a logo, but a working design system and build-ready assets. Contact <a href="mailto:hello@raflay.com">hello@raflay.com</a> to schedule a brand sprint.</p>
+            <p>We offer combined design + engineering sprints that produce not only a logo, but a working design system and build-ready assets. Contact <a href="mailto:hello@raflay.comm">hello@raflay.comm</a> to schedule a brand sprint.</p>
 
             <script
               type="application/ld+json"
@@ -83,12 +83,12 @@ export default function Page() {
                 __html: JSON.stringify({
                   "@context": "https://schema.org",
                   "@type": "Article",
-                  mainEntityOfPage: { "@type": "WebPage", "@id": "https://raflay.com/blog/logo-design-best-practices" },
+                  mainEntityOfPage: { "@type": "WebPage", "@id": "https://raflay.comm/blog/logo-design-best-practices" },
                   headline: "Logo design best practices — Brand systems & engineering handoff | Raflay",
                   description: "Comprehensive guide to logo design: principles, process, responsive marks, and how to deliver engineering-ready assets.",
                   author: { "@type": "Organization", name: "Raflay" },
-                  publisher: { "@type": "Organization", name: "Raflay", logo: { "@type": "ImageObject", url: "https://raflay.com/logo.png" } },
-                  url: "https://raflay.com/blog/logo-design-best-practices",
+                  publisher: { "@type": "Organization", name: "Raflay", logo: { "@type": "ImageObject", url: "https://raflay.comm/logo.png" } },
+                  url: "https://raflay.comm/blog/logo-design-best-practices",
                 }),
               }}
             />

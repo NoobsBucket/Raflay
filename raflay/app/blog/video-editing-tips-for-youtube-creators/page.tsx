@@ -7,14 +7,14 @@ export async function generateMetadata() {
   const title = "Video editing tips for YouTube creators — Editing workflow & best practices | Raflay";
   const description =
     "Advanced video editing guide for YouTube creators: pacing, audio workflow, color grading, export settings, and Raflay's editing process.";
-  const url = `https://raflay.com/blog/${slug}`;
+  const url = `https://raflay.comm/blog/${slug}`;
   return {
     title,
     description,
     keywords: ["video editing", "YouTube", "editing tips", "Raflay"],
     alternates: { canonical: url },
-    openGraph: { title, description, url, type: "article", images: [{ url: `https://raflay.com/og/${slug}.png`, alt: title }] },
-    twitter: { card: "summary_large_image", title, description, images: [`https://raflay.com/og/${slug}.png`] },
+    openGraph: { title, description, url, type: "article", images: [{ url: `https://raflay.comm/og/${slug}.png`, alt: title }] },
+    twitter: { card: "summary_large_image", title, description, images: [`https://raflay.comm/og/${slug}.png`] },
   };
 }
 
@@ -78,7 +78,7 @@ export default function Page() {
               <p>We offer tiered packages: rough cut + one revision, full edit + audio mix + thumbnails, and subscription editing for recurring creators. Packages include delivery-ready exports and optional captioning and localization services.</p>
 
               <h3>Want Raflay to edit your channel?</h3>
-              <p>Contact <a href="mailto:hello@raflay.com">hello@raflay.com</a> to request a sample edit and pricing tailored to your production cadence.</p>
+              <p>Contact <a href="mailto:hello@raflay.comm">hello@raflay.comm</a> to request a sample edit and pricing tailored to your production cadence.</p>
 
               <script
                 type="application/ld+json"
@@ -86,12 +86,12 @@ export default function Page() {
                   __html: JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "Article",
-                    mainEntityOfPage: { "@type": "WebPage", "@id": "https://raflay.com/blog/video-editing-tips-for-youtube-creators" },
+                    mainEntityOfPage: { "@type": "WebPage", "@id": "https://raflay.comm/blog/video-editing-tips-for-youtube-creators" },
                     headline: "Video editing tips for YouTube creators — Editing workflow & best practices | Raflay",
                     description: "Advanced video editing guide for YouTube creators: pacing, audio workflow, color grading, export settings, and Raflay's editing process.",
                     author: { "@type": "Organization", name: "Raflay" },
-                    publisher: { "@type": "Organization", name: "Raflay", logo: { "@type": "ImageObject", url: "https://raflay.com/logo.png" } },
-                    url: "https://raflay.com/blog/video-editing-tips-for-youtube-creators",
+                    publisher: { "@type": "Organization", name: "Raflay", logo: { "@type": "ImageObject", url: "https://raflay.comm/logo.png" } },
+                    url: "https://raflay.comm/blog/video-editing-tips-for-youtube-creators",
                   }),
                 }}
               />

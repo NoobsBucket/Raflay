@@ -7,14 +7,14 @@ export async function generateMetadata() {
   const title = "How to grow your business with mobile apps — Strategy & tactics | Raflay";
   const description =
     "Comprehensive guide on launching mobile apps for growth: product strategy, technical choices, measurement, and Raflay's playbook.";
-  const url = `https://raflay.com/blog/${slug}`;
+  const url = `https://raflay.comm/blog/${slug}`;
   return {
     title,
     description,
     keywords: ["mobile apps", "growth", "app strategy", "Raflay"],
     alternates: { canonical: url },
-    openGraph: { title, description, url, type: "article", images: [{ url: `https://raflay.com/og/${slug}.png`, alt: title }] },
-    twitter: { card: "summary_large_image", title, description, images: [`https://raflay.com/og/${slug}.png`] },
+    openGraph: { title, description, url, type: "article", images: [{ url: `https://raflay.comm/og/${slug}.png`, alt: title }] },
+    twitter: { card: "summary_large_image", title, description, images: [`https://raflay.comm/og/${slug}.png`] },
   };
 }
 
@@ -89,7 +89,7 @@ export default function Page() {
               </ul>
 
               <h3>How Raflay helps</h3>
-              <p>Our software dev teams run discovery, ship MVPs, then scale features informed by analytics. If you want an audit of your app idea or a growth plan, reach out at <a href="mailto:hello@raflay.com">hello@raflay.com</a>.</p>
+              <p>Our software dev teams run discovery, ship MVPs, then scale features informed by analytics. If you want an audit of your app idea or a growth plan, reach out at <a href="mailto:hello@raflay.comm">hello@raflay.comm</a>.</p>
 
               <script
                 type="application/ld+json"
@@ -97,12 +97,12 @@ export default function Page() {
                   __html: JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "Article",
-                    mainEntityOfPage: { "@type": "WebPage", "@id": "https://raflay.com/blog/how-to-grow-your-business-with-mobile-apps" },
+                    mainEntityOfPage: { "@type": "WebPage", "@id": "https://raflay.comm/blog/how-to-grow-your-business-with-mobile-apps" },
                     headline: "How to grow your business with mobile apps — Strategy & tactics | Raflay",
                     description: "Comprehensive guide on launching mobile apps for growth: product strategy, technical choices, measurement, and Raflay's playbook.",
                     author: { "@type": "Organization", name: "Raflay" },
-                    publisher: { "@type": "Organization", name: "Raflay", logo: { "@type": "ImageObject", url: "https://raflay.com/logo.png" } },
-                    url: "https://raflay.com/blog/how-to-grow-your-business-with-mobile-apps",
+                    publisher: { "@type": "Organization", name: "Raflay", logo: { "@type": "ImageObject", url: "https://raflay.comm/logo.png" } },
+                    url: "https://raflay.comm/blog/how-to-grow-your-business-with-mobile-apps",
                   }),
                 }}
               />

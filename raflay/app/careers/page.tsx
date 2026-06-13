@@ -18,14 +18,14 @@ export default function CareersPage() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-          background: #0A0A0A;
-          color: #FAFAF5;
+          background: #FFFFFF;
+          color: #161618;
           font-family: 'Jost', sans-serif;
         }
 
         .careers-page {
           min-height: 100vh;
-          background: #0A0A0A;
+          background: #FFFFFF;
           padding: 80px 24px 96px;
           position: relative;
           overflow: hidden;
@@ -35,11 +35,12 @@ export default function CareersPage() {
           position: fixed;
           inset: 0;
           background-image:
-            linear-gradient(rgba(255,214,0,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,214,0,0.04) 1px, transparent 1px);
-          background-size: 60px 60px;
+            linear-gradient(rgba(212,32,48,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212,32,48,0.06) 1px, transparent 1px);
+          background-size: 52px 52px;
           pointer-events: none;
           z-index: 0;
+          opacity: 0.5;
         }
 
         .inner {
@@ -47,6 +48,12 @@ export default function CareersPage() {
           margin: 0 auto;
           position: relative;
           z-index: 1;
+          background: #FFFFFF;
+          border: 1px solid rgba(22,22,24,0.08);
+          border-radius: 32px;
+          box-shadow: 0 40px 120px rgba(0,0,0,0.08);
+          padding: 64px 40px 80px;
+          overflow: hidden;
         }
 
         /* ── Breadcrumb ── */
@@ -80,24 +87,26 @@ export default function CareersPage() {
         /* ── Header ── */
         .page-tag {
           display: inline-block;
-          font-family: 'Jost', sans-serif;
-          font-weight: 600;
-          font-size: 0.72rem;
-          color: #FFD600;
-          letter-spacing: 0.16em;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 700;
+          font-size: 0.74rem;
+          color: #D42030;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
-          border: 1px solid rgba(255,214,0,0.3);
-          padding: 4px 10px;
-          border-radius: 3px;
-          margin-bottom: 16px;
+          border: 1px solid rgba(212,32,48,0.18);
+          padding: 7px 14px;
+          border-radius: 999px;
+          margin-bottom: 18px;
+          background: rgba(212,32,48,0.08);
         }
 
         .page-title {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(52px, 7vw, 96px);
-          line-height: 0.93;
+          font-size: clamp(56px, 7vw, 100px);
+          line-height: 0.92;
           letter-spacing: 0.02em;
-          margin-bottom: 20px;
+          margin-bottom: 22px;
+          max-width: 840px;
         }
 
         .page-title em {
@@ -106,45 +115,48 @@ export default function CareersPage() {
         }
 
         .page-subtitle {
-          font-family: 'Jost', sans-serif;
-          font-size: 1rem;
-          font-weight: 400;
-          color: #BBBBAA;
-          line-height: 1.7;
-          max-width: 520px;
-          margin-bottom: 60px;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: 1.05rem;
+          font-weight: 500;
+          color: #5c5a56;
+          line-height: 1.75;
+          max-width: 700px;
+          margin-bottom: 64px;
         }
 
         /* ── Stats row ── */
         .stats-row {
           display: flex;
           gap: 0;
-          border: 1.5px solid #222;
-          border-radius: 4px;
+          border: 1.5px solid rgba(22,22,24,0.08);
+          border-radius: 28px;
           overflow: hidden;
           margin-bottom: 64px;
+          background: #F7F4F1;
+          box-shadow: 0 18px 40px rgba(0,0,0,0.08);
         }
         .stat-item {
           flex: 1;
-          padding: 24px 28px;
-          border-right: 1.5px solid #222;
+          padding: 28px 32px;
+          border-right: 1.5px solid rgba(22,22,24,0.08);
+          text-align: center;
         }
         .stat-item:last-child { border-right: none; }
         .stat-num {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 2.8rem;
+          font-size: 3rem;
           letter-spacing: 0.03em;
           color: #FFD600;
           line-height: 1;
-          margin-bottom: 4px;
+          margin-bottom: 6px;
         }
         .stat-label {
-          font-family: 'Jost', sans-serif;
-          font-size: 0.72rem;
-          font-weight: 600;
-          letter-spacing: 0.12em;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: 0.8rem;
+          font-weight: 700;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #555;
+          color: #9f9f9f;
         }
 
         /* ── Section label ── */
@@ -178,140 +190,148 @@ export default function CareersPage() {
         }
 
         .job-card {
-          background: #111;
-          border: 1.5px solid #222;
-          border-radius: 4px;
-          padding: 28px 32px;
+          background: #FFFFFF;
+          border: 1.5px solid rgba(22,22,24,0.08);
+          border-radius: 28px;
+          padding: 34px 36px;
           display: grid;
           grid-template-columns: 1fr auto;
-          gap: 20px;
-          align-items: center;
+          gap: 24px;
+          align-items: flex-start;
           text-decoration: none;
           color: inherit;
           position: relative;
           overflow: hidden;
-          transition: border-color 0.15s, transform 0.15s;
+          transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
         }
         .job-card::before {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
-          height: 3px;
-          background: #222;
-          transition: background 0.15s;
+          height: 5px;
+          background: linear-gradient(90deg, #FFD600 0%, #D42030 100%);
         }
         .job-card:hover {
-          border-color: #333;
-          transform: translateY(-2px);
+          border-color: rgba(212,32,48,0.5);
+          transform: translateY(-3px);
+          box-shadow: 0 28px 80px rgba(0,0,0,0.22);
         }
         .job-card:hover::before {
-          background: #FFD600;
+          background: linear-gradient(90deg, #FFD600 0%, #D42030 100%);
         }
 
-        .job-left { display: flex; flex-direction: column; gap: 10px; }
+        .job-left { display: flex; flex-direction: column; gap: 14px; }
 
         .job-tags {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 12px;
           flex-wrap: wrap;
         }
 
         .job-dept {
-          font-family: 'Jost', sans-serif;
-          font-weight: 700;
-          font-size: 0.65rem;
-          letter-spacing: 0.14em;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 800;
+          font-size: 0.72rem;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
-          padding: 3px 9px;
-          border-radius: 2px;
-          background: #FFD600;
-          color: #0A0A0A;
+          padding: 10px 14px;
+          border-radius: 999px;
+          background: #D42030;
+          color: #fff;
         }
 
         .job-type {
-          font-family: 'Jost', sans-serif;
-          font-weight: 600;
-          font-size: 0.65rem;
-          letter-spacing: 0.1em;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 700;
+          font-size: 0.72rem;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
-          padding: 3px 9px;
-          border-radius: 2px;
-          border: 1.5px solid #2a2a2a;
-          color: #666;
+          padding: 10px 14px;
+          border-radius: 999px;
+          border: 1.5px solid rgba(22,22,24,0.08);
+          color: #5c5a56;
+          background: #F7F4F1;
         }
 
         .job-location-tag {
           font-family: 'Jost', sans-serif;
           font-weight: 600;
-          font-size: 0.65rem;
-          letter-spacing: 0.1em;
+          font-size: 0.78rem;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: #555;
+          color: #5c5a56;
           display: flex;
           align-items: center;
-          gap: 5px;
+          gap: 8px;
+          background: #F7F4F1;
+          padding: 10px 14px;
+          border-radius: 999px;
+          border: 1px solid rgba(22,22,24,0.08);
         }
 
         .job-title {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 1.9rem;
-          letter-spacing: 0.03em;
+          font-size: clamp(32px, 4vw, 48px);
+          letter-spacing: 0.02em;
           line-height: 1;
-          color: #FAFAF5;
+          color: #161618;
+          margin: 0;
         }
 
         .job-desc {
           font-family: 'Jost', sans-serif;
-          font-size: 0.875rem;
+          font-size: 0.98rem;
           font-weight: 400;
-          color: #666;
-          line-height: 1.65;
-          max-width: 600px;
+          color: #5c5a56;
+          line-height: 1.8;
+          max-width: 760px;
         }
 
         .job-right {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 16px;
           flex-shrink: 0;
+          justify-content: flex-end;
         }
 
         .apply-btn {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
+          gap: 10px;
           background: #FFD600;
           color: #0A0A0A;
-          font-family: 'Jost', sans-serif;
-          font-weight: 700;
-          font-size: 0.75rem;
-          letter-spacing: 0.1em;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 800;
+          font-size: 0.82rem;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          padding: 10px 18px;
-          border-radius: 3px;
+          padding: 14px 20px;
+          border-radius: 999px;
           text-decoration: none;
           white-space: nowrap;
-          transition: opacity 0.15s;
+          transition: opacity 0.15s, transform 0.15s;
         }
-        .apply-btn:hover { opacity: 0.85; }
+        .apply-btn:hover { opacity: 0.95; transform: translateY(-1px); }
 
         .arrow-box {
-          width: 40px;
-          height: 40px;
-          border: 1.5px solid #2a2a2a;
-          border-radius: 3px;
+          width: 46px;
+          height: 46px;
+          border: 1.5px solid rgba(22,22,24,0.08);
+          border-radius: 14px;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #444;
+          color: #5c5a56;
           font-size: 1rem;
-          transition: border-color 0.15s, color 0.15s;
+          transition: border-color 0.15s, color 0.15s, transform 0.15s;
           flex-shrink: 0;
         }
         .job-card:hover .arrow-box {
           border-color: #FFD600;
           color: #FFD600;
+          transform: translateY(-1px);
         }
 
         /* ── Perks section ── */
@@ -323,17 +343,23 @@ export default function CareersPage() {
         }
 
         .perk-card {
-          background: #111;
-          border: 1.5px solid #222;
-          border-radius: 4px;
-          padding: 24px;
+          background: #FFFFFF;
+          border: 1.5px solid rgba(22,22,24,0.08);
+          border-radius: 24px;
+          padding: 28px;
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 14px;
+          min-height: 220px;
+          transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .perk-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 24px 72px rgba(0,0,0,0.22);
         }
 
         .perk-icon {
-          font-size: 1.5rem;
+          font-size: 1.8rem;
           line-height: 1;
         }
 
@@ -341,14 +367,14 @@ export default function CareersPage() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: 1.2rem;
           letter-spacing: 0.04em;
-          color: #FAFAF5;
+          color: #161618;
         }
 
         .perk-desc {
           font-family: 'Jost', sans-serif;
           font-size: 0.82rem;
           font-weight: 400;
-          color: #666;
+          color: #5c5a56;
           line-height: 1.65;
         }
 
@@ -358,44 +384,47 @@ export default function CareersPage() {
           align-items: center;
           justify-content: space-between;
           gap: 24px;
-          background: #FFD600;
-          border: 3px solid #0A0A0A;
-          box-shadow: 5px 5px 0 #0A0A0A;
-          padding: 24px 32px;
-          border-radius: 4px;
+          background: #FFFFFF;
+          border: 1.5px solid rgba(212,32,48,0.18);
+          box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+          padding: 32px 34px;
+          border-radius: 28px;
         }
-        .cta-banner-left { display: flex; flex-direction: column; gap: 4px; }
+        .cta-banner-left { display: flex; flex-direction: column; gap: 8px; }
         .cta-banner-title {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 1.6rem;
+          font-size: clamp(28px, 3vw, 36px);
           letter-spacing: 0.03em;
-          color: #0A0A0A;
-          line-height: 1;
+          color: #161618;
+          line-height: 1.05;
+          margin: 0;
         }
         .cta-banner-sub {
-          font-family: 'Jost', sans-serif;
-          font-size: 0.82rem;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: 0.95rem;
           font-weight: 400;
-          color: rgba(10,10,10,0.6);
+          color: #5c5a56;
+          margin: 0;
+          line-height: 1.8;
         }
         .cta-email-btn {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          background: #0A0A0A;
-          color: #FFD600;
-          font-family: 'Jost', sans-serif;
-          font-weight: 700;
-          font-size: 0.75rem;
-          letter-spacing: 0.1em;
+          gap: 10px;
+          background: #D42030;
+          color: #fff;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 800;
+          font-size: 0.82rem;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          padding: 12px 20px;
-          border-radius: 3px;
+          padding: 14px 20px;
+          border-radius: 999px;
           text-decoration: none;
           white-space: nowrap;
-          transition: opacity 0.15s;
+          transition: opacity 0.15s, transform 0.15s;
         }
-        .cta-email-btn:hover { opacity: 0.85; }
+        .cta-email-btn:hover { opacity: 0.95; transform: translateY(-1px); }
 
         @media (max-width: 900px) {
           .perks-grid { grid-template-columns: repeat(2, 1fr); }
@@ -431,8 +460,8 @@ export default function CareersPage() {
             <em>RAFLAY</em>
           </h1>
           <p className="page-subtitle">
-            We're a small team with big ambitions. If you love building software that
-            actually matters, you'll fit right in.
+            We&apos;re a small team with big ambitions. If you love building software that
+            actually matters, you&apos;ll fit right in.
           </p>
 
           {/* Stats */}
@@ -505,7 +534,7 @@ export default function CareersPage() {
               { icon: "📈", title: "Grow Fast", desc: "Early-stage means massive scope. You'll wear many hats and level up faster than anywhere else." },
               { icon: "🛠️", title: "Real Ownership", desc: "No tickets lost in backlogs. You build it, you own it, you improve it." },
               { icon: "🤝", title: "Small & Focused", desc: "A tight-knit team where your voice actually matters and decisions get made quickly." },
-              { icon: "💡", title: "Build to Last", desc: "We don't cut corners. Every product is built with care, performance, and longevity in mind." },
+              { icon: "💡", title: "Build to Last", desc: "We don&apos;t cut corners. Every product is built with care, performance, and longevity in mind." },
             ].map((perk) => (
               <div key={perk.title} className="perk-card">
                 <span className="perk-icon">{perk.icon}</span>
@@ -518,8 +547,8 @@ export default function CareersPage() {
           {/* CTA banner */}
           <div className="cta-banner">
             <div className="cta-banner-left">
-              <p className="cta-banner-title">DON'T SEE YOUR ROLE?</p>
-              <p className="cta-banner-sub">Send us an open application — we're always openly looking for exceptional people.</p>
+              <p className="cta-banner-title">DON&apos;T SEE YOUR ROLE?</p>
+              <p className="cta-banner-sub">Send us an open application — we&apos;re always openly looking for exceptional people.</p>
             </div>
             <a href={`mailto:${company.email}?subject=Open Application`} className="cta-email-btn">
               ✉ GET IN TOUCH

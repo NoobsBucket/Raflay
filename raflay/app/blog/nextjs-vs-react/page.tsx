@@ -46,7 +46,7 @@ export default function Page() {
         pageSummary="A practical guide to choosing between React alone and Next.js for product development."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="blog" />
       <Footer />

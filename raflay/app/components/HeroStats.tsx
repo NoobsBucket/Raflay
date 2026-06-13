@@ -55,8 +55,8 @@ export default function HeroStats() {
   return (
     <section ref={sectionRef} style={{ maxWidth: 1200, margin: "0 auto", padding: "42px 20px 24px" }}>
       <style>{`
-        .hero-stats-heading { font-family:'Bebas Neue',sans-serif; font-size: clamp(34px, 5vw, 48px); color: #fff; margin: 0 0 12px; line-height: 1.05; letter-spacing: 0.02em; }
-        .hero-stats-subtitle { max-width: 760px; margin: 0 auto 24px; color: #ddd; font-family:'Barlow Condensed',sans-serif; font-size: 14px; line-height: 1.8; }
+        .hero-stats-heading { font-family:'Bebas Neue',sans-serif; font-size: clamp(52px, 8vw, 72px); color: #000000; margin: 0 auto 20px; line-height: 1.1; letter-spacing: 0.02em; font-weight: 900; text-align: center; }
+        .hero-stats-subtitle {font-weight: 700; max-width: 760px; margin: 0 auto 24px; color: #f71e1e; font-family:'Barlow Condensed',sans-serif; font-size: 18px; line-height: 1.8; text-align: center; }
         .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
         .hero-stat-card { background: #111; border: 1px solid rgba(212,32,48,0.16); border-radius: 18px; padding: 24px 22px; box-shadow: 0 24px 70px rgba(0,0,0,0.18); }
         .hero-stat-number { font-family:'Bebas Neue',sans-serif; font-size: clamp(48px, 5vw, 70px); color: #D42030; margin: 0 0 8px; line-height: 0.95; }
@@ -66,7 +66,7 @@ export default function HeroStats() {
       `}</style>
 
       <h2 className="hero-stats-heading">Real results, built over time</h2>
-      <p className="hero-stats-subtitle">These numbers show how we partner with clients across web, software, AI, and creative services. The counters animate up as the section appears.</p>
+      <p className="hero-stats-subtitle">These numbers show how we partner with clients across web, software, AI, and creative services.</p>
       <div className="hero-stats">
         {stats.map((stat, index) => (
           <div className="hero-stat-card" key={stat.label}>

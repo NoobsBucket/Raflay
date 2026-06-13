@@ -45,7 +45,7 @@ export default function Page() {
         pageSummary="This case study covers the creative process, editing approach, and performance of a branded video campaign."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <Footer />
     </>

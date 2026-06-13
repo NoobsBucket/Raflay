@@ -17,7 +17,7 @@ export default function Page() {
         <section style={{ marginBottom: 40 }}>
           <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(48px, 5vw, 72px)", color: "#D42030", margin: 0 }}>Services</h1>
           <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 18, color: "#444", maxWidth: 760, lineHeight: 1.75, marginTop: 18 }}>
-            Explore Raflay's service catalog and filter by software, video, design, cloud, or mobile capabilities to find the right engagement.
+            Explore Raflay's service catalog software, video, design, cloud, or mobile.
           </p>
         </section>
         <CategoryPanel categoryType="services" />

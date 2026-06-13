@@ -71,13 +71,13 @@ const filters = {
 
 const pageInfo = {
   blog: {
-    title: "Blog",
-    description: "Browse all Raflay blog posts and filter by software, video, or design topics.",
+    title: "",
+    description: "",
     items: blogItems,
   },
   services: {
-    title: "Services",
-    description: "Discover Raflay services with quick filtering for software, video, design, and cloud offerings.",
+    title: "",
+    description: "",
     items: serviceItems,
   },
 };

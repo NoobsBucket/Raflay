@@ -40,7 +40,7 @@ export default function Page() {
         pageSummary="Raflay builds automation solutions that reduce manual effort and improve business consistency."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="services" />
       <Footer />

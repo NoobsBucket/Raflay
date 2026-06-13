@@ -3,76 +3,21 @@
 
 import Link from "next/link";
 
-import { projects } from "../../data/content";
+import { products } from "../../data/content";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 
-// ── Static extra detail per product ─────────────────────────────────────────
-const productDetails = {
-  1: {
-    tagline: "Your entire pipeline. One place.",
-    longDescription:
-      "Raflay CRM is built for growing businesses that need more than a spreadsheet. Manage your entire sales pipeline, nurture leads, track communication history, and close deals faster — all in a single, clean interface designed for speed.",
-    features: [
-      { icon: "🎯", title: "Pipeline Management", desc: "Visual drag-and-drop pipelines so your team always knows where every deal stands." },
-      { icon: "📬", title: "Lead Tracking", desc: "Capture leads from any source, auto-assign them, and track every interaction." },
-      { icon: "📊", title: "Analytics Dashboard", desc: "Real-time reports on deal velocity, team performance, and revenue forecasts." },
-      { icon: "🔗", title: "Integrations", desc: "Connect with email, calendar, and third-party tools your team already uses." },
-      { icon: "🤖", title: "Automation", desc: "Set up workflows to follow up automatically and never let a deal go cold." },
-      { icon: "🔒", title: "Role-based Access", desc: "Fine-grained permissions so every team member sees exactly what they need." },
-    ],
-    target: "Sales teams, agencies, and B2B businesses",
-    timeline: "Q3 2025",
-    accentColor: "#FFD600",
-    bgColor: "#FFD600",
-    cardColor: "#0A0A0A",
-  },
-  2: {
-    tagline: "Get paid. Without the friction.",
-    longDescription:
-      "Raflay Pay makes invoicing and payments dead simple for freelancers and small businesses in emerging markets. Send professional invoices, accept online payments, and track what you're owed — in minutes, not days.",
-    features: [
-      { icon: "⚡", title: "Instant Invoicing", desc: "Create and send branded invoices in under 60 seconds from any device." },
-      { icon: "💳", title: "Multi-method Payments", desc: "Accept cards, bank transfers, and local payment methods your clients already use." },
-      { icon: "🌍", title: "Emerging Markets First", desc: "Built with Pakistan and South Asia in mind. Local currencies, local rails." },
-      { icon: "📱", title: "Mobile First", desc: "Manage your money on the go with a native-feeling mobile app." },
-      { icon: "📈", title: "Cash Flow Insights", desc: "See what's paid, what's pending, and what's overdue at a glance." },
-      { icon: "🔔", title: "Auto Reminders", desc: "Automated follow-up reminders so you don't have to chase clients manually." },
-    ],
-    target: "Freelancers, consultants, and small businesses",
-    timeline: "Q4 2025",
-    accentColor: "#E8180C",
-    bgColor: "#E8180C",
-    cardColor: "#FAFAF5",
-  },
-  3: {
-    tagline: "Support that actually scales.",
-    longDescription:
-      "Raflay Desk gives modern support teams an AI-powered backbone. Smart ticket routing gets the right issue to the right agent in seconds. AI-suggested responses let your team reply faster, without sacrificing quality.",
-    features: [
-      { icon: "🤖", title: "AI Ticket Routing", desc: "Machine learning automatically classifies and routes every incoming ticket." },
-      { icon: "💬", title: "Smart Reply Suggestions", desc: "AI drafts responses based on your knowledge base so agents can reply in one click." },
-      { icon: "📂", title: "Knowledge Base", desc: "Build a self-serve help center that deflects repetitive questions automatically." },
-      { icon: "⚙️", title: "SLA Management", desc: "Set response and resolution targets and get alerted before an SLA is breached." },
-      { icon: "📊", title: "Support Analytics", desc: "Track CSAT, response times, and ticket volume with clear, actionable dashboards." },
-      { icon: "🔌", title: "Omnichannel Inbox", desc: "Email, chat, and social — all in one unified inbox your team will love." },
-    ],
-    target: "Customer support teams and SaaS companies",
-    timeline: "Q1 2026",
-    accentColor: "#FFD600",
-    bgColor: "#0A0A0A",
-    cardColor: "#FAFAF5",
-  },
-};
+// Product detail objects are embedded in `products` inside `app/data/content.ts`.
 
 // ── generateStaticParams replaces getStaticPaths in the App Router ───────────
 export async function generateStaticParams() {
-  return projects.map((p) => ({ id: String(p.id) }));
+  return products.map((p) => ({ id: String(p.id) }));
 }
 
 // ── generateMetadata replaces <Head> / getStaticProps for metadata ───────────
 export async function generateMetadata({ params }) {
-  const project = projects.find((p) => p.id === Number(params.id));
+  const { id } = await params;
+  const project = products.find((p) => p.id === Number(id));
   return {
     title: project ? `${project.name} — Raflay` : "Product — Raflay",
   };
@@ -83,8 +28,8 @@ export async function generateMetadata({ params }) {
 export default async function ProductDetail({ params }) {
   const { id } = await params; // `await params` required in Next.js 15+
 
-  const project = projects.find((p) => p.id === Number(id));
-  const detail = productDetails[Number(id)];
+  const project = products.find((p) => p.id === Number(id));
+  const detail = project?.detail;
 
   if (!project || !detail) {
     return (
@@ -107,8 +52,8 @@ export default async function ProductDetail({ params }) {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-          background: #0A0A0A;
-          color: #FAFAF5;
+          background: #FFFFFF;
+          color: #161618;
           font-family: 'Jost', sans-serif;
         }
 
@@ -120,7 +65,7 @@ export default async function ProductDetail({ params }) {
           padding: 80px 24px 72px;
           position: relative;
           overflow: hidden;
-          border-bottom: 4px solid #0A0A0A;
+          border-bottom: 1px solid rgba(22,22,24,0.06);
         }
 
         .hero-stripe {
@@ -228,9 +173,17 @@ export default async function ProductDetail({ params }) {
           user-select: none;
         }
 
-        .detail-body { background: #0A0A0A; padding: 80px 24px 96px; }
+        .detail-body { background: #FFFFFF; padding: 80px 24px 96px; }
 
-        .body-inner { max-width: 1200px; margin: 0 auto; }
+        .body-inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          background: #FFFFFF;
+          border-radius: 28px;
+          padding: 48px;
+          box-shadow: 0 18px 40px rgba(10,10,10,0.06);
+          border: 1px solid rgba(22,22,24,0.04);
+        }
 
         .body-grid {
           display: grid;
@@ -245,7 +198,7 @@ export default async function ProductDetail({ params }) {
           font-size: 0.68rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #FFD600;
+          color: var(--red, #D42030);
           margin-bottom: 16px;
         }
 
@@ -253,7 +206,7 @@ export default async function ProductDetail({ params }) {
           font-family: 'Jost', sans-serif;
           font-size: 1.05rem;
           font-weight: 400;
-          color: #BBBBAA;
+          color: #5c5a56;
           line-height: 1.8;
           margin-bottom: 48px;
         }
@@ -274,13 +227,13 @@ export default async function ProductDetail({ params }) {
         }
 
         .feature-card {
-          background: #111;
-          border: 1.5px solid #222;
-          border-radius: 4px;
+          background: #FFFFFF;
+          border: 1.5px solid rgba(22,22,24,0.06);
+          border-radius: 16px;
           padding: 24px;
-          transition: border-color 0.15s, transform 0.15s;
+          transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
         }
-        .feature-card:hover { border-color: #FFD600; transform: translateY(-2px); }
+        .feature-card:hover { border-color: var(--red, #D42030); transform: translateY(-4px); box-shadow: 0 18px 40px rgba(10,10,10,0.06); }
 
         .feature-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
 
@@ -290,32 +243,32 @@ export default async function ProductDetail({ params }) {
           font-size: 0.95rem;
           letter-spacing: 0.04em;
           margin-bottom: 8px;
-          color: #FAFAF5;
+          color: #161618;
         }
 
         .feature-desc {
           font-family: 'Jost', sans-serif;
           font-weight: 400;
           font-size: 0.88rem;
-          color: #888;
+          color: #5c5a56;
           line-height: 1.65;
         }
 
         .sidebar { display: flex; flex-direction: column; gap: 20px; }
 
         .info-card {
-          background: #111;
-          border: 1.5px solid #222;
-          border-radius: 4px;
-          padding: 24px;
+          background: #FFFFFF;
+          border: 1.5px solid rgba(22,22,24,0.06);
+          border-radius: 12px;
+          padding: 20px;
         }
 
         .info-row {
           display: flex;
           flex-direction: column;
           gap: 4px;
-          padding: 14px 0;
-          border-bottom: 1px solid #1e1e1e;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(22,22,24,0.06);
         }
         .info-row:last-child { border-bottom: none; padding-bottom: 0; }
         .info-row:first-child { padding-top: 0; }
@@ -326,14 +279,14 @@ export default async function ProductDetail({ params }) {
           font-size: 0.65rem;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #555;
+          color: #6b6a68;
         }
 
         .info-value {
           font-family: 'Jost', sans-serif;
           font-weight: 600;
           font-size: 0.92rem;
-          color: #FAFAF5;
+          color: #161618;
         }
 
         .status-pill {
@@ -343,11 +296,11 @@ export default async function ProductDetail({ params }) {
           font-size: 0.65rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          padding: 4px 10px;
-          border-radius: 20px;
-          background: rgba(255,214,0,0.15);
-          color: #FFD600;
-          border: 1px solid rgba(255,214,0,0.3);
+          padding: 6px 12px;
+          border-radius: 999px;
+          background: rgba(212,32,48,0.06);
+          color: var(--red, #D42030);
+          border: 1px solid rgba(212,32,48,0.12);
         }
 
         .tech-chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -357,22 +310,23 @@ export default async function ProductDetail({ params }) {
           font-weight: 600;
           font-size: 0.68rem;
           letter-spacing: 0.07em;
-          padding: 4px 10px;
-          border-radius: 3px;
-          border: 1.5px solid #333;
-          color: #FAFAF5;
+          padding: 6px 10px;
+          border-radius: 999px;
+          border: 1px solid rgba(22,22,24,0.06);
+          color: #5c5a56;
+          background: #FAFAF8;
         }
 
         .cta-strip {
           background: ${accentBg};
-          border: 3px solid #0A0A0A;
-          border-radius: 4px;
-          padding: 36px 40px;
+          border: 1px solid rgba(22,22,24,0.06);
+          border-radius: 12px;
+          padding: 28px 32px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           gap: 24px;
-          box-shadow: 6px 6px 0 ${isYellow ? "#0A0A0A" : "#FFD600"};
+          box-shadow: 0 18px 40px rgba(10,10,10,0.06);
           flex-wrap: wrap;
         }
 
@@ -392,13 +346,13 @@ export default async function ProductDetail({ params }) {
           font-size: 0.85rem;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          padding: 14px 28px;
-          border-radius: 4px;
+          padding: 12px 22px;
+          border-radius: 999px;
           text-decoration: none;
-          border: 3px solid #0A0A0A;
-          background: ${isYellow ? "#0A0A0A" : "#FFD600"};
-          color: ${isYellow ? "#FAFAF5" : "#0A0A0A"};
-          box-shadow: 4px 4px 0 ${isYellow ? "#FFD600" : "#0A0A0A"};
+          border: 1px solid rgba(10,10,10,0.06);
+          background: ${isYellow ? '#0A0A0A' : '#FFD600'};
+          color: ${isYellow ? '#FAFAF5' : '#0A0A0A'};
+          box-shadow: 0 8px 20px rgba(10,10,10,0.06);
           transition: box-shadow 0.12s, transform 0.12s;
           white-space: nowrap;
         }
@@ -468,7 +422,7 @@ export default async function ProductDetail({ params }) {
           <div className="body-inner">
             <div className="body-grid">
               <div>
-                <p className="section-label">// OVERVIEW</p>
+                <p className="section-label">{'// OVERVIEW'}</p>
                 <p className="long-desc">{detail.longDescription}</p>
 
                 <h2 className="features-title">
@@ -487,7 +441,7 @@ export default async function ProductDetail({ params }) {
 
               <div className="sidebar">
                 <div className="info-card">
-                  <p className="section-label" style={{ marginBottom: 0 }}>// PRODUCT INFO</p>
+                  <p className="section-label" style={{ marginBottom: 0 }}>{'// PRODUCT INFO'}</p>
                   <div className="info-row">
                     <span className="info-label">Status</span>
                     <span><span className="status-pill">{project.status}</span></span>
@@ -507,7 +461,7 @@ export default async function ProductDetail({ params }) {
                 </div>
 
                 <div className="info-card">
-                  <p className="section-label" style={{ marginBottom: 12 }}>// TECH STACK</p>
+                  <p className="section-label" style={{ marginBottom: 12 }}>{'// TECH STACK'}</p>
                   <div className="tech-chips">
                     {project.tech.map((t) => (
                       <span key={t} className="tech-chip">{t}</span>
@@ -516,11 +470,11 @@ export default async function ProductDetail({ params }) {
                 </div>
 
                 <div className="info-card" style={{ borderColor: "rgba(255,214,0,0.2)", background: "rgba(255,214,0,0.04)" }}>
-                  <p className="section-label" style={{ marginBottom: 8 }}>// INTERESTED?</p>
+                  <p className="section-label" style={{ marginBottom: 8 }}>{'// INTERESTED?'}</p>
                   <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.88rem", color: "#888", lineHeight: 1.65, marginBottom: 16 }}>
                     Want early access or to stay updated on this product?
                   </p>
-                  <a href={`mailto:hello@raflay.com?subject=Interest in ${project.name}`} className="cta-btn" style={{ width: "100%", justifyContent: "center", boxSizing: "border-box" }}>
+                  <a href={`mailto:hello@raflay.comm?subject=Interest in ${project.name}`} className="cta-btn" style={{ width: "100%", justifyContent: "center", boxSizing: "border-box" }}>
                     GET IN TOUCH →
                   </a>
                 </div>
@@ -529,7 +483,7 @@ export default async function ProductDetail({ params }) {
 
             <div className="cta-strip">
               <p className="cta-text">WANT EARLY ACCESS TO {project.name.toUpperCase()}?</p>
-              <a href={`mailto:hello@raflay.com?subject=Early Access - ${project.name}`} className="cta-btn">
+              <a href={`mailto:hello@raflay.comm?subject=Early Access - ${project.name}`} className="cta-btn">
                 REACH OUT →
               </a>
             </div>

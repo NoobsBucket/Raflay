@@ -33,7 +33,7 @@ export default function Page() {
         pageSummary="Showcasing video editing, motion graphics, and brand content produced for digital platforms."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <Footer />
     </>

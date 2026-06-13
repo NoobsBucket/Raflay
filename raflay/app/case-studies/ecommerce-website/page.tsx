@@ -45,7 +45,7 @@ export default function Page() {
         pageSummary="A case study showing improved performance, checkout flow, and customer acquisition."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <Footer />
     </>

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -21,7 +22,6 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/",         label: "Home" },
-    { href: "/blog",     label: "All" },
     { href: "/services", label: "Services" },
     { href: "/blog",     label: "Blog" },
     { href: "/products", label: "Products" },
@@ -196,14 +196,7 @@ export default function Navbar() {
         }}>
           {/* Logo */}
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{
-              width: 32, height: 32,
-              background: "#D42030",
-              borderRadius: 9,
-              display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <span style={{ fontFamily: "'DM Serif Display', serif", fontSize: 17, color: "#fff" }}>R</span>
-            </div>
+            <Image src="/logo.png" alt="Raflay logo" width={40} height={40} style={{ borderRadius: 9 }} />
             <span style={{ fontFamily: "'DM Serif Display', serif", fontSize: 21, color: "#111", letterSpacing: "-0.01em" }}>
               Raf<span style={{ color: "#D42030" }}>lay</span>
             </span>

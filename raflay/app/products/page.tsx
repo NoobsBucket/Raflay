@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { company, projects } from "../data/content";
+import { company, products } from "../data/content";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
@@ -127,8 +127,8 @@ export default function ProductsPage() {
                   <p className="stats-eyebrow">RAFLAY MOMENTUM</p>
                   <div className="stats-grid">
                     <div className="stat-card">
-                      <p className="stat-val">3</p>
-                      <p className="stat-lbl">Active products</p>
+                      <p className="stat-val">4</p>
+                      <p className="stat-lbl">In Development</p>
                     </div>
                     <div className="stat-card">
                       <p className="stat-val">2025</p>
@@ -140,7 +140,7 @@ export default function ProductsPage() {
                     </div>
                     <div className="stat-card">
                       <p className="stat-val">PAK</p>
-                      <p className="stat-lbl">Karachi hub</p>
+                      <p className="stat-lbl">ISLAMABAD hub</p>
                     </div>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function ProductsPage() {
           </p>
 
           <div className="products-grid">
-            {projects.map((project, index) => {
+            {products.map((project, index) => {
               const isYellow = project.color === 'yellow';
               const isRed = project.color === 'red';
               return (

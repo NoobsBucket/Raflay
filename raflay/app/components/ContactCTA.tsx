@@ -9,7 +9,7 @@ export default function ContactCTA() {
 
       <h3 className="cta-title">Ready to start?</h3>
       <p className="cta-desc">Schedule a discovery call with Raflay’s product and engineering leads to scope your project.</p>
-      <a className="cta-btn" href="mailto:hello@raflay.com">Contact us</a>
+      <a className="cta-btn" href="mailto:hello@raflay.comm">Contact us</a>
     </section>
   );
 }

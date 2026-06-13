@@ -40,7 +40,7 @@ export default function Page() {
         pageSummary="Learn what drives video editing costs and how to estimate packages for your project."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="blog" />
       <Footer />

@@ -40,7 +40,7 @@ export default function Page() {
         pageSummary="Raflay crafts logos that are scalable, distinctive, and suited for digital and print use."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="services" />
       <Footer />

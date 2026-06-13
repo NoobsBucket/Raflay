@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Hero from "./components/hero";
@@ -90,19 +89,18 @@ keywords: [
 export default function Home() {
   return (
     <>
-    <Navbar />
-    <Hero />
-    <Projects />
-    <ServicesLinks />
-    <Industries />
-    <Process />
-    <WhyChooseUs />
-    <HeroStats />
-    <Testimonials />
-    <Technologies />
-    <ContactCTA />
-    <FAQ />
-    <Footer />
+      <Navbar />
+      <Hero />
+      <Industries />
+      <HeroStats />
+      <Projects />
+      <Technologies />
+      <WhyChooseUs />
+      <Process />
+      <Testimonials />
+      <ContactCTA />
+      <FAQ />
+      <Footer />
     </>
   );
 }

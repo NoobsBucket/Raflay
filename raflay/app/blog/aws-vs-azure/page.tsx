@@ -46,7 +46,7 @@ export default function Page() {
         pageSummary="Understand AWS and Azure differences so you can choose the right cloud strategy for your project."
         sections={sections}
         ctaText="Book a discovery call with Raflay"
-        ctaLink="mailto:hello@raflay.com"
+        ctaLink="mailto:hello@raflay.comm"
       />
       <CategoryPanel categoryType="blog" />
       <Footer />

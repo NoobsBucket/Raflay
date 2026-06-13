@@ -201,10 +201,10 @@ export default function Hero() {
                 <p className="stats-eyebrow">// Company Stats</p>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                   {[
-                    { label: "Products", value: "3" },
+                    { label: "Products", value: "17" },
                     { label: "+ B2C Model", value: "B2B" },
-                    { label: "Founded", value: "2024" },
-                    { label: "Pakistan", value: "KHI" },
+                    { label: "Founded", value: "2025" },
+                    { label: "Pakistan", value: "ISB" },
                   ].map((s) => (
                     <div key={s.label}>
                       <div className="stat-val">{s.value}</div>
@@ -217,7 +217,7 @@ export default function Hero() {
               {/* Ticker */}
               <div style={{ background: "#000000", borderRadius: 3, padding: "10px 16px", overflow: "hidden" }}>
                 <div style={{ display: "flex", gap: 20, whiteSpace: "nowrap" }}>
-                  {["Software", "B2B", "B2C", "Karachi", "Pakistan", "Startup"].map((t, i) => (
+                  {["Software", "B2B", "B2C", "ISLAMABAD", "Pakistan", "company"].map((t, i) => (
                     <span key={i} className="ticker-item">{t}</span>
                   ))}
                 </div>
